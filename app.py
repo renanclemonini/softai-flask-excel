@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for, send_from_directory, flash
-from utils import allowed_file, converter_xls_para_xlsx, processar_excel_oficial3, medidor_tempo
+from utils import allowed_file, converter_xls_para_xlsx, processar_excel_oficial3, limpar_pasta_input
 from werkzeug.utils import secure_filename
 from uuid import uuid4
 import os
@@ -13,6 +13,7 @@ api_key = 'bafbb1fc22b54b6a92e08f877b2a80d507dc65a2f8b0936eebc986c4c3a03aa2'
 def create_app():
     app = Flask(__name__)
     app.secret_key = api_key
+    limpar_pasta_input()
 
     @app.route('/')
     def index():
