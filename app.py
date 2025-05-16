@@ -13,7 +13,7 @@ api_key = 'bafbb1fc22b54b6a92e08f877b2a80d507dc65a2f8b0936eebc986c4c3a03aa2'
 def create_app():
     app = Flask(__name__)
     app.secret_key = api_key
-    limpar_pasta_input()
+    limpar_pasta_input() 
 
     @app.route('/')
     def index():

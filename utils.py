@@ -25,7 +25,7 @@ def limpar_pasta_input():
             time.sleep(3600)  # 3600 segundos = 1 hora
 
     t = threading.Thread(target=agendador, daemon=True)
-    t.start()
+    t.start() 
 
 
 def medidor_tempo(bench_mark=False):
