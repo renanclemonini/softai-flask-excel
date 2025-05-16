@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<h3 class="mt-3">Orientações para Uso</h3>
+<p>Para que este script funcione de forma adequada é necessário se atentar aos padrões utilizados para processamento</p>
+<div class="card mb-3">
+    <img src="../static/image/padrao2.png" class="card-img-top" alt="padrao1" style="width: 400px; height: auto;">
+    <div class="card-body">
+        <h5 class="card-title">Padrão 1</h5>
+        <p class="card-text">Este é o padrão antigo onde as colunas são organizadas por: <strong>Telefone, Nome, Etiquetas</strong></p>
+        <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+    </div>
+</div>
+<div class="card">
+    <img src="../static/image/padrao1.png" class="card-img-top" alt="padrao1" style="width: 600px; height: auto;">
+    <div class="card-body">
+        <h5 class="card-title">Padrão 2</h5>
+        <p class="card-text">Este é a forma atual de importação: <strong>Primeiro nome, Sobrenome, Telefone, Etiquetas</strong></p>
+        <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+    </div>
+</div>
+<h4 class="text-center mt-3">Processamento</h4>
+<div class="m-3">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="file" class="form-label">Insira um arquivo excel com extensão <strong>.xlsx</strong> ou <strong>.xls</strong></label>
+            <input class="form-control" type="file" id="file" name="file" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+{% endblock %}

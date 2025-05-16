@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="">
+    <h2>Seu arquivo está pronto para download...</h2>
+    <p>Se o download não iniciar automaticamente, <a id="manualLink" href="/download/{{ arquivo_dowload }}">clique aqui</a>.</p>
+    <h3>Relatório do Processamento</h3>
+    <ul>
+        <!-- <li>Colunas encontradas: {{ response_data.colunas_encontradas | length }}</li> -->
+        <li>Arquivo original: {{ response_data.linhas_originais }} linhas x {{ response_data.colunas_originais }} colunas</li>
+        <li>Novo arquivo: {{ response_data.linhas_novo + 1 }} linhas x 4 colunas</li>
+        <li>Linhas totalmente em branco: {{ response_data.linhas_em_branco }}</li>
+        <li>Colunas totalmente em branco: {{ response_data.colunas_em_branco }}</li>
+    </ul>
+    
+    <p><a href="{{ url_for('index') }}" class="btn btn-primary">Voltar ao Início</a></p>
+</div>
+<div class="p-5"></div>
+<div class="p-5"></div>
+<div class="p-3"></div>
+<script>
+window.onload = function () {
+    const link = document.createElement("a");
+    link.href = "/download/{{ arquivo_dowload }}";
+    link.download = "{{ arquivo_dowload }}";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+</script>
+{% endblock %}
