@@ -44,7 +44,7 @@ def create_app():
                     arquivo_nome = os.path.basename(response['arquivo_processado'])
                     return render_template('download.html', arquivo_dowload=arquivo_nome, response_data=response)
                 except Exception as e:
-                    flash("Formato de arquivo não permitido. Envie um arquivo .xls, ou .xlsx", "warning")
+                    flash("Arquivo corrompido!", "warning")
                     return redirect(url_for('upload'))
 
         return render_template('input_page.html')

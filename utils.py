@@ -453,7 +453,7 @@ def processar_excel_oficial3(arquivo_entrada: str):
             primeiro_nome = ''
             sobrenome = ''
             telefone = ''
-            etiquetas = 'etiqueta_valida'
+            etiquetas = 'NomeConfirmado'
 
             if padrao_3_colunas:
                 nome = str(row[idx['nome']] or '').strip()
