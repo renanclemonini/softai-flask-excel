@@ -15,13 +15,16 @@ def limpar_pasta_input():
     def agendador():
         while True:
             pasta = 'output'
-            for arquivo in os.listdir(pasta):
-                caminho = os.path.join(pasta, arquivo)
-                try:
-                    if os.path.isfile(caminho):
-                        os.remove(caminho)
-                except Exception as e:
-                    print(f"Erro ao remover {arquivo}: {e}")
+            try:
+                for arquivo in os.listdir(pasta):
+                    caminho = os.path.join(pasta, arquivo)
+                    try:
+                        if os.path.isfile(caminho):
+                            os.remove(caminho)
+                    except Exception as e:
+                        print(f"Erro ao remover {arquivo}: {e}")
+            except:
+                pass
             time.sleep(3600)  # 3600 segundos = 1 hora
 
     t = threading.Thread(target=agendador, daemon=True)
