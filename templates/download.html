@@ -7,7 +7,7 @@
     <p>Se o download não iniciar automaticamente, <a id="manualLink" href="/download/{{ arquivo_dowload }}">clique aqui</a>.</p>
     <h3>Relatório do Processamento</h3>
     <ul>
-        <!-- <li>Colunas encontradas: {{ response_data.colunas_encontradas | length }}</li> -->
+        <li>Colunas encontradas: {{ response_data.colunas_encontradas | length }} {{ response_data.colunas_encontradas }}</li>
         <li>Arquivo original: {{ response_data.linhas_originais }} linhas x {{ response_data.colunas_originais }} colunas</li>
         <li>Novo arquivo: {{ response_data.linhas_novo + 1 }} linhas x 4 colunas</li>
         <li>Linhas totalmente em branco: {{ response_data.linhas_em_branco }}</li>
